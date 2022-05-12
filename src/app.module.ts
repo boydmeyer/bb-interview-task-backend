@@ -1,10 +1,16 @@
+import { ConfigModule } from '@nestjs/config';
+import { MediaModule } from './media/media.module';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { typeOrmConfigAsync } from './config/typeorm.config';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    ConfigModule.forRoot({ isGlobal: true }),
+    TypeOrmModule.forRootAsync(typeOrmConfigAsync),
+    MediaModule,
+  ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
