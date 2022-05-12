@@ -1,9 +1,14 @@
-import { Module } from '@nestjs/common';
-import { MediaService } from './media.service';
+import { Media } from './entities/media.entity';
 import { MediaController } from './media.controller';
+import { MediaService } from './media.service';
+import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  controllers: [MediaController],
-  providers: [MediaService]
+  imports: [
+    TypeOrmModule.forFeature([Media]), //import entity for repository
+  ],
+  controllers: [MediaController], //import controllers
+  providers: [MediaService], //import services
 })
 export class MediaModule {}

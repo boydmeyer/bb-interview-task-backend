@@ -6,9 +6,9 @@ import { typeOrmConfigAsync } from './config/typeorm.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRootAsync(typeOrmConfigAsync),
-    MediaModule,
+    ConfigModule.forRoot({ isGlobal: true }), //import config module for environment variables
+    TypeOrmModule.forRootAsync(typeOrmConfigAsync), //import typeorm module for database connection
+    MediaModule, //import media module
   ],
   controllers: [],
   providers: [],
