@@ -17,7 +17,9 @@ export default class TypeOrmConfig {
       database: configService.get('POSTGRES_DATABASE'),
       autoLoadEntities: true,
       entities: [Media],
-      ssl: false,
+      ssl: {
+        rejectUnauthorized: false,
+      },
       synchronize: true,
     };
   }
