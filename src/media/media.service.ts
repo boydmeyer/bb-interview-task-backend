@@ -34,7 +34,7 @@ export class MediaService {
    * @returns Promise<Media>
    */
   async findOne(id: string) {
-    return await this.mediaRepository.findOne({ where: { id } });
+    return await this.mediaRepository.findOne({ where: { postId: id } });
   }
 
   /**
